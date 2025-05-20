@@ -8,15 +8,7 @@ const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme()
 
   const handleToggle = () => {
-    console.log("Current theme before toggle:", theme)
     toggleTheme()
-
-    setTimeout(() => {
-      console.log(
-        "HTML has dark class:",
-        document.documentElement.classList.contains("dark")
-      )
-    }, 100)
   }
 
   return (
@@ -35,7 +27,7 @@ const ThemeToggle: React.FC = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="absolute inset-0 text-yellow-500 transition-opacity duration-300"
+          className="absolute inset-0 text-yellow-500 transition-opacity"
           animate={{ opacity: theme === "light" ? 1 : 0 }}
         >
           <circle cx="12" cy="12" r="5"></circle>
@@ -57,7 +49,7 @@ const ThemeToggle: React.FC = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="absolute inset-0 text-teal-300 transition-opacity duration-300"
+          className="absolute inset-0 text-teal-300 transition-opacity"
           animate={{ opacity: theme === "dark" ? 1 : 0 }}
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>

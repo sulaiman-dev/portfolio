@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import ThemeToggle from "@/components/ui/ThemeToggle"
+import ThemeToggle from "@/theme/theme-toggle"
+// import ThemeToggle2 from "@/components/ui/ThemeToggle"
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)

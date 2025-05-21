@@ -13,24 +13,30 @@ export default function Home() {
       <Hero />
 
       {/* Main Content Sections */}
-      <section id="about" className="section-padding">
+      <section
+        id="about"
+        className="section-padding bg-background-light dark:bg-background-dark"
+      >
         <About />
       </section>
 
       <section
         id="projects"
-        className="section-padding bg-neutral-50 dark:bg-neutral-800"
+        className="section-padding bg-accent-50 dark:bg-primary-900"
       >
         <Projects />
       </section>
 
-      <section id="skills" className="section-padding">
+      <section
+        id="skills"
+        className="section-padding bg-background-light dark:bg-background-dark"
+      >
         <Skills />
       </section>
 
       <section
         id="contact"
-        className="section-padding bg-neutral-50 dark:bg-neutral-800"
+        className="section-padding bg-accent-50 dark:bg-primary-900"
       >
         <Contact />
       </section>

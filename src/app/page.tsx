@@ -15,7 +15,7 @@ export default function Home() {
       {/* Main Content Sections */}
       <section
         id="about"
-        className="section-padding bg-background-light dark:bg-background-dark"
+        className="section-padding bg-surface-light dark:bg-surface-dark"
       >
         <About />
       </section>
@@ -29,7 +29,7 @@ export default function Home() {
 
       <section
         id="skills"
-        className="section-padding bg-background-light dark:bg-background-dark"
+        className="section-padding bg-surface-light dark:bg-surface-dark"
       >
         <Skills />
       </section>
@@ -40,8 +40,6 @@ export default function Home() {
       >
         <Contact />
       </section>
-
-      {/* Note: Navbar and Footer are already included in your layout.tsx */}
     </>
   )
 }

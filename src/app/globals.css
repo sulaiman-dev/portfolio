@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-card: hsl(207 97% 12%);
+  --color-background-light: hsl(0 0% 100%);
+  --color-background-dark: hsl(207 95% 8%);
+  --color-background-custom: hsl(187 71% 82%);
+  --color-background-pastel: hsl(279 100% 93%);
+  --color-primary-50: hsl(204 100% 97%);
+  --color-primary-100: hsl(204 94% 94%);
+  --color-primary-200: hsl(201 94% 86%);
+  --color-primary-300: hsl(199 95% 74%);
+  --color-primary-400: hsl(198 93% 60%);
+  --color-primary-500: hsl(199 89% 48%);
+  --color-primary-600: hsl(200 98% 39%);
+  --color-primary-700: hsl(201 96% 32%);
+  --color-primary-800: hsl(201 90% 27%);
+  --color-primary-900: hsl(202 80% 24%);
+  --color-primary-950: hsl(202 80% 16%);
+  --color-accent-50: hsl(166 76% 97%);
+  --color-accent-100: hsl(167 85% 89%);
+  --color-accent-200: hsl(168 84% 78%);
+  --color-accent-300: hsl(171 77% 64%);
+  --color-accent-400: hsl(172 66% 50%);
+  --color-accent-500: hsl(173 80% 40%);
+  --color-accent-600: hsl(175 84% 32%);
+  --color-accent-700: hsl(175 77% 26%);
+  --color-accent-800: hsl(176 69% 22%);
+  --color-accent-900: hsl(176 61% 19%);
+  --color-accent-950: hsl(179 84% 10%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  [data-theme="light"] {
+    --color-card: hsl(207 97% 12%);
+  }
+  [data-theme="dark"] {
+    --color-card: hsl(0 0% 96%);
+  }
+  [data-theme="custom"] {
+    --color-card: hsl(182, 87%, 39%);
+  }
+  [data-theme="pastel"] {
+    --color-card: hsl(291 46% 83%);
   }
 }
 
+:root[data-theme="light"] {
+  background-color: var(--color-background-light);
+  color: hsl(222 84% 5%);
+}
+
+:root[data-theme="dark"] {
+  background-color: var(--color-background-dark);
+  color: hsl(210 40% 98%);
+}
+
+:root[data-theme="custom"] {
+  background-color: var(--color-background-custom);
+  color: hsl(222 84% 5%);
+}
+
+:root[data-theme="pastel"] {
+  background-color: var(--color-background-pastel);
+  color: hsl(222 84% 5%);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }

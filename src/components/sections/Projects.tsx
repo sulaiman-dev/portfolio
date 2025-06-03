@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
       : projects.filter((project) => project.tags.includes(activeFilter))
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-2">My Projects</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-600 mx-auto"></div>
         </motion.div>
 
         {/* Filter buttons */}
@@ -41,8 +41,8 @@ const Projects: React.FC = () => {
               onClick={() => setActiveFilter(tag)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeFilter === tag
-                  ? "bg-blue-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  ? "bg-primary-600 text-white"
+                  : "bg-primary-50 dark:bg-primary-800 text-primary-700 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-700 border border-primary-200 dark:border-primary-600"
               }`}
             >
               {tag}
@@ -59,15 +59,15 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-primary-50 dark:bg-primary-900 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-primary-200 dark:border-primary-700"
             >
-              <div className="h-48 bg-gray-200 relative">
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+              <div className="h-48 bg-primary-100 dark:bg-primary-800 relative">
+                <div className="absolute inset-0 flex items-center justify-center text-primary-400 dark:text-primary-300">
                   Project Image
                   {/* Uncomment when you have actual images
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
+                  <Image
+                    src={project.image}
+                    alt={project.title}
                     fill
                     className="object-cover"
                   />
@@ -77,13 +77,15 @@ const Projects: React.FC = () => {
 
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <p className="text-primary-600 dark:text-primary-300 mb-4">
+                  {project.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full"
+                      className="bg-accent-100 dark:bg-accent-800 text-accent-700 dark:text-accent-200 text-xs px-3 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -96,7 +98,7 @@ const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                      className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors font-medium"
                     >
                       Live Demo
                     </a>
@@ -106,7 +108,7 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                      className="text-primary-700 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-200 transition-colors font-medium"
                     >
                       View Code
                     </a>

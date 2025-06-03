@@ -6,11 +6,11 @@ import { motion } from "framer-motion"
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800 dark:from-slate-800 dark:to-slate-900 text-white overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-900 dark:to-primary-950 text-white overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-400 opacity-20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-400 opacity-20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-400 opacity-20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10">
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-blue-100"
+            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-primary-100"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           >
             <Link
               href="#projects"
-              className="bg-white text-blue-700 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors"
+              className="bg-white text-primary-700 px-8 py-3 rounded-full font-medium hover:bg-primary-50 transition-colors"
             >
               View My Work
             </Link>

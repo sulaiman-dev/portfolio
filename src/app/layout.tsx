@@ -28,14 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
           enableSystem={true}
           defaultTheme="system"
-          attribute="data-theme"
+          // attribute="data-theme"
         >
           <Navbar />
           <main className="min-h-screen">{children}</main>

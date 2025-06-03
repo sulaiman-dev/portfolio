@@ -40,7 +40,7 @@ const skillCategories = [
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ const Skills: React.FC = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-2">My Skills</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-600 mx-auto"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -61,21 +61,24 @@ const Skills: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-50 rounded-xl p-6 shadow-md"
+              className="bg-primary-50 dark:bg-primary-900 rounded-xl p-6 shadow-md border border-primary-200 dark:border-primary-700"
             >
-              <h3 className="text-xl font-bold mb-6 text-center">
+              <h3 className="text-xl font-bold mb-6 text-center text-primary-800 dark:text-primary-200">
                 {category.name}
               </h3>
+
               <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
                       <span className="font-medium">{skill.name}</span>
-                      <span className="text-gray-500">{skill.level}%</span>
+                      <span className="text-primary-500 dark:text-primary-400">
+                        {skill.level}%
+                      </span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="w-full bg-primary-200 dark:bg-primary-800 rounded-full h-2.5">
                       <motion.div
-                        className="bg-blue-600 h-2.5 rounded-full"
+                        className="bg-gradient-to-r from-primary-600 to-accent-500 h-2.5 rounded-full"
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         transition={{ duration: 1, delay: 0.1 * skillIndex }}

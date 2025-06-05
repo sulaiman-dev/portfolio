@@ -33,7 +33,7 @@ const About: React.FC = () => {
                 {/* Uncomment and use your actual image
                 <Image
                   src="/images/profile.jpg"
-                  alt="Sulaiman Shinwari"
+                  alt="Sulaiman"
                   fill
                   className="object-cover"
                 />
@@ -61,7 +61,7 @@ const About: React.FC = () => {
               <div>
                 <p className="font-medium">Name:</p>
                 <p className="text-primary-600 dark:text-primary-300">
-                  Sulaiman Shinwari
+                  Sulaiman
                 </p>
               </div>
               <div>

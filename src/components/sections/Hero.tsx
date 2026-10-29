@@ -1,90 +1,66 @@
-"use client"
-
-import React from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { Section } from "@/components/layout/Section"
+import { FadeIn } from "@/components/motion/FadeIn"
+import { HeroShowcase } from "@/components/sections/HeroShowcase"
+import { buttonVariants } from "@/components/ui/button"
+import { siteConfig } from "@/data/site"
+import { cn } from "@/lib/utils"
 
-const Hero: React.FC = () => {
+export function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-900 dark:to-primary-950 text-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent-400 opacity-20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-400 opacity-20 rounded-full blur-3xl"></div>
+    <Section
+      spacing="lg"
+      className="bg-atmosphere"
+      aria-labelledby="hero-heading"
+      containerClassName="grid items-center gap-10 md:gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16"
+    >
+      <div className="space-y-6 sm:space-y-8">
+        <FadeIn>
+          <p className="font-display text-sm font-medium text-accent">
+            {siteConfig.identity.primary}
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.06}>
+          <h1 id="hero-heading" className="max-w-3xl text-balance">
+            I build integrations, dashboards, and automation workflows for SaaS
+            products.
+          </h1>
+        </FadeIn>
+        <FadeIn delay={0.12}>
+          <p className="max-w-xl text-base sm:text-lg">
+            Full Stack Engineer with 5+ years of experience shipping SaaS
+            products, integrations, and production workflows.
+          </p>
+        </FadeIn>
+        <FadeIn delay={0.18}>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a
+              href={siteConfig.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "interactive-press w-full sm:w-auto"
+              )}
+            >
+              {siteConfig.cta.label}
+            </a>
+            <Link
+              href="/work/adza-ai"
+              className={cn(
+                buttonVariants({ variant: "secondary", size: "lg" }),
+                "interactive-press w-full sm:w-auto"
+              )}
+            >
+              See How I Built Adza AI
+            </Link>
+          </div>
+        </FadeIn>
       </div>
 
-      <div className="container mx-auto px-4 z-10">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 text-white"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Sulaiman
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-primary-100"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Full Stack Developer specializing in building exceptional digital
-            experiences
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <Link
-              href="#projects"
-              className="bg-white text-primary-700 px-8 py-3 rounded-full font-medium hover:bg-primary-50 transition-colors"
-            >
-              View My Work
-            </Link>
-            <Link
-              href="#contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors"
-            >
-              Contact Me
-            </Link>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ duration: 1.5, delay: 1, repeat: Infinity }}
-      >
-        <svg
-          className="w-6 h-6 text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      </motion.div>
-    </section>
+      <FadeIn delay={0.2} y={16} className="min-w-0">
+        <HeroShowcase />
+      </FadeIn>
+    </Section>
   )
 }
-
-export default Hero

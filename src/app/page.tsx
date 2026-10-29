@@ -1,45 +1,23 @@
-"use client"
+import { Hero } from "@/components/sections/Hero"
+import { ProofStrip } from "@/components/sections/ProofStrip"
+import { WhatIHelpBuild } from "@/components/sections/WhatIHelpBuild"
+import { FeaturedWork } from "@/components/sections/FeaturedWork"
+import { SelectedWork } from "@/components/sections/SelectedWork"
+import { HowIWork } from "@/components/sections/HowIWork"
+import { OpenSource } from "@/components/sections/OpenSource"
+import { ContactCTA } from "@/components/sections/ContactCTA"
 
-import Hero from "@/components/sections/Hero"
-import About from "@/components/sections/About"
-import Projects from "@/components/sections/Projects"
-import Skills from "@/components/sections/Skills"
-import Contact from "@/components/sections/Contact"
-
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
       <Hero />
-
-      {/* Main Content Sections */}
-      <section
-        id="about"
-        className="section-padding bg-surface-light dark:bg-surface-dark"
-      >
-        <About />
-      </section>
-
-      <section
-        id="projects"
-        className="section-padding bg-accent-50 dark:bg-primary-900"
-      >
-        <Projects />
-      </section>
-
-      <section
-        id="skills"
-        className="section-padding bg-surface-light dark:bg-surface-dark"
-      >
-        <Skills />
-      </section>
-
-      <section
-        id="contact"
-        className="section-padding bg-accent-50 dark:bg-primary-900"
-      >
-        <Contact />
-      </section>
+      <ProofStrip />
+      <WhatIHelpBuild />
+      <FeaturedWork />
+      <SelectedWork />
+      <HowIWork />
+      <OpenSource />
+      <ContactCTA />
     </>
   )
 }

@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Section } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
 import { ScaleIn } from "@/components/motion/ScaleIn"
+import { RouteRule } from "@/components/topology/RouteRule"
 import { ContributionList } from "@/components/work/ContributionList"
 import { ScreenshotGallery } from "@/components/work/ScreenshotGallery"
 import { getFeaturedProject } from "@/data/projects"
@@ -17,13 +18,14 @@ export function FeaturedWork() {
     <Section
       id="work"
       spacing="md"
-      className="bg-surface/30"
+      className="border-y border-field bg-surface/40"
       aria-labelledby="featured-heading"
       containerClassName="space-y-8 sm:space-y-10"
     >
       <Reveal className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl space-y-3">
-          <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+          <RouteRule className="max-w-xs" />
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
             Featured work
           </p>
           <h2 id="featured-heading">{project.name}</h2>
@@ -46,7 +48,11 @@ export function FeaturedWork() {
 
       {shots.length > 0 ? (
         <ScaleIn>
-          <ScreenshotGallery projectName={project.name} shots={shots} />
+          <ScreenshotGallery
+            projectName={project.name}
+            projectSlug={project.slug}
+            shots={shots}
+          />
         </ScaleIn>
       ) : null}
     </Section>

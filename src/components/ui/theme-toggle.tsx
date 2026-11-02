@@ -21,7 +21,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     return (
       <span
         className={cn(
-          "inline-flex h-10 w-10 items-center justify-center rounded-md border border-border",
+          "inline-flex h-10 w-10 items-center justify-center border border-field",
           className
         )}
         aria-hidden
@@ -36,7 +36,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:bg-surface-elevated hover:text-foreground",
+        "inline-flex h-10 w-10 items-center justify-center border border-field bg-surface text-muted-foreground transition-colors hover:border-signal/40 hover:bg-surface-elevated hover:text-foreground",
         className
       )}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}

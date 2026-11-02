@@ -9,7 +9,7 @@ interface ScaleInProps {
   delay?: number
 }
 
-/** Soft media enter — screenshots / showcase only. */
+/** Payload arrive — soft scale for schematic media. */
 export function ScaleIn({ children, className, delay = 0 }: ScaleInProps) {
   const reduceMotion = useReducedMotion()
 
@@ -20,10 +20,10 @@ export function ScaleIn({ children, className, delay = 0 }: ScaleInProps) {
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay }}
+      initial={{ opacity: 0, y: 10, scale: 0.985 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>

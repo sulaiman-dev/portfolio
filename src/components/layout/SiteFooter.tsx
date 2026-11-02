@@ -6,10 +6,11 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-field bg-background">
       <Container className="flex flex-col gap-8 py-10 sm:py-12 md:flex-row md:items-start md:justify-between">
         <div className="space-y-2">
-          <p className="font-display text-sm font-semibold text-foreground">
+          <p className="flex items-center gap-2 font-display text-sm font-semibold text-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
             {siteConfig.name}
           </p>
           <p className="max-w-sm text-sm text-muted-foreground">
@@ -22,7 +23,7 @@ export function SiteFooter() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm text-muted-foreground transition-colors hover:text-signal"
             >
               {item.label}
             </Link>
@@ -60,9 +61,9 @@ export function SiteFooter() {
         </nav>
       </Container>
 
-      <Container className="border-t border-border py-6">
-        <p className="text-xs text-muted-foreground">
-          © {year} {siteConfig.name}. All rights reserved.
+      <Container className="border-t border-field py-6">
+        <p className="font-mono text-[11px] text-muted-foreground">
+          © {year} {siteConfig.name}.
         </p>
       </Container>
     </footer>

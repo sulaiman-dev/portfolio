@@ -3,36 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* -------------------------------------------------------------------------- */
-/* Semantic tokens — dark-first (Linear / Vercel inspired, blue accent)       */
+/* Signal Topology — Direction A                                              */
+/* Void / field / signal teal / amber focus — blue retired as brand           */
 /* -------------------------------------------------------------------------- */
 
 :root {
-  /* Light (optional) */
-  --background: 0 0% 100%;
-  --foreground: 240 10% 4%;
-  --muted: 240 5% 96%;
-  --muted-foreground: 240 4% 46%;
-  --surface: 0 0% 98%;
+  /* Light (optional reverse plate) */
+  --background: 210 20% 97%;
+  --foreground: 213 28% 12%;
+  --muted: 210 18% 92%;
+  --muted-foreground: 213 14% 40%;
+  --surface: 210 20% 94%;
   --surface-elevated: 0 0% 100%;
-  --border: 240 6% 90%;
-  --ring: 217 91% 50%;
-  --accent: 217 91% 50%;
-  --accent-foreground: 0 0% 100%;
-  --hero-glow: 217 91% 60%;
+  --border: 213 18% 82%;
+  --field: 213 22% 78%;
+  --signal: 166 72% 36%;
+  --signal-bright: 166 76% 42%;
+  --amber: 40 88% 48%;
+  --ring: 166 72% 36%;
+  --accent: 166 72% 36%;
+  --accent-foreground: 210 20% 98%;
+  --hero-glow: 166 70% 42%;
 }
 
 .dark {
-  --background: 240 6% 4%;
-  --foreground: 0 0% 98%;
-  --muted: 240 4% 10%;
-  --muted-foreground: 240 5% 64%;
-  --surface: 240 5% 7%;
-  --surface-elevated: 240 4% 10%;
-  --border: 240 4% 16%;
-  --ring: 217 91% 60%;
-  --accent: 217 91% 60%;
-  --accent-foreground: 0 0% 100%;
-  --hero-glow: 217 91% 55%;
+  --background: 216 30% 4%; /* #07090C-ish */
+  --foreground: 214 40% 94%; /* #E8EEF6 */
+  --muted: 215 28% 8%;
+  --muted-foreground: 214 16% 62%; /* #8B9BB0-ish */
+  --surface: 214 32% 7%; /* #0C1118-ish */
+  --surface-elevated: 215 30% 10%;
+  --border: 214 28% 16%;
+  --field: 214 32% 15%; /* #1A2433-ish */
+  --signal: 166 72% 64%; /* #5EEAD4 */
+  --signal-bright: 168 66% 52%; /* #2DD4BF */
+  --amber: 40 87% 66%; /* #F4C15D */
+  --ring: 166 72% 64%;
+  --accent: 166 72% 64%;
+  --accent-foreground: 216 30% 6%;
+  --hero-glow: 166 70% 55%;
 }
 
 @theme inline {
@@ -48,14 +57,18 @@
   --color-surface: hsl(var(--surface));
   --color-surface-elevated: hsl(var(--surface-elevated));
   --color-border: hsl(var(--border));
+  --color-field: hsl(var(--field));
+  --color-signal: hsl(var(--signal));
+  --color-signal-bright: hsl(var(--signal-bright));
+  --color-amber: hsl(var(--amber));
   --color-ring: hsl(var(--ring));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-hero-glow: hsl(var(--hero-glow));
 
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -78,7 +91,7 @@
   }
 
   ::selection {
-    background: hsl(var(--accent) / 0.25);
+    background: hsl(var(--signal) / 0.28);
   }
 
   h1,
@@ -109,33 +122,123 @@
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+    @apply outline-none ring-2 ring-amber ring-offset-2 ring-offset-background;
   }
 
-  /* Prefer keyboard-visible outline on interactive controls */
   button:focus:not(:focus-visible),
   a:focus:not(:focus-visible) {
     outline: none;
   }
 }
 
-/* Soft atmospheric background for hero / page shells */
+/* -------------------------------------------------------------------------- */
+/* Topology field                                                             */
+/* -------------------------------------------------------------------------- */
+
+.bg-topology {
+  background-color: hsl(var(--background));
+  background-image:
+    radial-gradient(
+      ellipse 70% 45% at 70% 20%,
+      hsl(var(--signal) / 0.07),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 10% 80%,
+      hsl(var(--amber) / 0.04),
+      transparent 50%
+    ),
+    linear-gradient(hsl(var(--field) / 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--field) / 0.35) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    48px 48px,
+    48px 48px;
+  background-position:
+    center,
+    center,
+    center,
+    center;
+}
+
+/* Legacy alias — redirects to topology field */
 .bg-atmosphere {
   background-color: hsl(var(--background));
   background-image:
     radial-gradient(
-      ellipse 80% 50% at 50% -20%,
-      hsl(var(--hero-glow) / 0.18),
-      transparent 60%
+      ellipse 70% 45% at 70% 20%,
+      hsl(var(--signal) / 0.07),
+      transparent 55%
     ),
-    radial-gradient(
-      ellipse 60% 40% at 100% 0%,
-      hsl(var(--hero-glow) / 0.08),
-      transparent 50%
-    );
+    linear-gradient(hsl(var(--field) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--field) / 0.3) 1px, transparent 1px);
+  background-size:
+    auto,
+    48px 48px,
+    48px 48px;
 }
 
-/* Skip link — visible on keyboard focus only */
+/* Route stroke draw */
+.route-path {
+  fill: none;
+  stroke: hsl(var(--signal));
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.route-path-muted {
+  fill: none;
+  stroke: hsl(var(--field));
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: var(--route-length, 400);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.route-draw {
+  stroke-dasharray: var(--route-length, 400);
+  animation: route-draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.node-pulse {
+  animation: node-pulse 0.9s ease-in-out 1;
+}
+
+@keyframes payload-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.payload-arrive {
+  animation: payload-arrive 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Skip link */
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -143,7 +246,7 @@
   z-index: 100;
   transform: translateY(-160%);
   border-radius: var(--radius-md);
-  background: hsl(var(--accent));
+  background: hsl(var(--signal));
   color: hsl(var(--accent-foreground));
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
@@ -162,7 +265,7 @@
     background-color 150ms ease,
     border-color 150ms ease,
     color 150ms ease,
-    opacity 150ms ease;
+    box-shadow 150ms ease;
 }
 
 .interactive-press:active {
@@ -170,7 +273,7 @@
 }
 
 .media-hover {
-  transition: transform 220ms ease, opacity 220ms ease;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -184,16 +287,36 @@
   }
 }
 
-/* Respect reduced motion — PRD hard rule */
+/* Schematic pin skew — screenshots as map payloads */
+.schematic-pin {
+  transform: rotate(-1.25deg);
+  transform-origin: center center;
+}
+
+@media (min-width: 1024px) {
+  .schematic-pin {
+    transform: rotate(-2deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
+  .route-draw,
+  .node-pulse,
+  .payload-arrive,
   .interactive-press,
   .media-hover,
   .skip-link {
+    animation: none !important;
     transition: none !important;
+  }
+
+  .route-draw {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
   }
 
   .interactive-press:active,
@@ -201,6 +324,10 @@
   .group:hover .media-hover,
   a.media-hover:hover {
     transform: none !important;
+  }
+
+  .schematic-pin {
+    transform: none;
   }
 
   *,

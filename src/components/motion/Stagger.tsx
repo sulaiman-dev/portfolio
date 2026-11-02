@@ -11,9 +11,10 @@ interface StaggerProps {
 }
 
 const item = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, x: 10, y: 8 },
   show: {
     opacity: 1,
+    x: 0,
     y: 0,
     transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },

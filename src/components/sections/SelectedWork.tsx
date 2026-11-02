@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
+import { RouteRule } from "@/components/topology/RouteRule"
 import { CompactExperience } from "@/components/work/CompactExperience"
 import { ProjectCard } from "@/components/work/ProjectCard"
 import { compactExperience, getSelectedProjects } from "@/data/projects"
@@ -14,6 +15,7 @@ export function SelectedWork() {
       containerClassName="space-y-10 sm:space-y-12"
     >
       <Reveal className="max-w-2xl space-y-3">
+        <RouteRule className="max-w-xs" />
         <h2 id="selected-heading">Selected work</h2>
         <p>
           Additional SaaS delivery across extensions, integrations, and

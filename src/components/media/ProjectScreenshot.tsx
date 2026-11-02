@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { BrowserChrome } from "@/components/media/BrowserChrome"
+import { SchematicFrame } from "@/components/media/SchematicFrame"
 import { PlaceholderFrame } from "@/components/media/PlaceholderFrame"
 import { cn } from "@/lib/utils"
 import type { ScreenshotShot } from "@/types/screenshot"
@@ -7,17 +7,30 @@ import type { ScreenshotShot } from "@/types/screenshot"
 interface ProjectScreenshotProps {
   projectName: string
   shot: ScreenshotShot
-  url?: string
+  /** Schematic legend — formerly browser URL */
+  caption?: string
   className?: string
   framed?: boolean
+  pin?: boolean
+  hops?: string[]
+}
+
+function buildCaption(projectName: string, shot: ScreenshotShot, caption?: string) {
+  if (caption) return caption
+  const project = projectName.replace(/\s+/g, " ").toUpperCase()
+  const label = shot.label.toUpperCase()
+  const index = shot.id.slice(0, 2).toUpperCase()
+  return `${project} / ${label} / ${index}`
 }
 
 export function ProjectScreenshot({
   projectName,
   shot,
-  url,
+  caption,
   className,
   framed = true,
+  pin = true,
+  hops,
 }: ProjectScreenshotProps) {
   const media = shot.src ? (
     <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface">
@@ -34,6 +47,7 @@ export function ProjectScreenshot({
       project={projectName}
       label={shot.label}
       tone={shot.placeholderTone}
+      hops={hops}
     />
   )
 
@@ -42,8 +56,12 @@ export function ProjectScreenshot({
   }
 
   return (
-    <BrowserChrome className={className} url={url}>
+    <SchematicFrame
+      className={className}
+      caption={buildCaption(projectName, shot, caption)}
+      pin={pin}
+    >
       {media}
-    </BrowserChrome>
+    </SchematicFrame>
   )
 }

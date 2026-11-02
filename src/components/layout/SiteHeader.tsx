@@ -46,12 +46,13 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-field/80 bg-background/85 backdrop-blur-md">
       <Container className="flex h-14 items-center justify-between gap-4 sm:h-16">
         <Link
           href="/"
-          className="font-display text-base font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 font-display text-base font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-signal" aria-hidden />
           {siteConfig.name}
         </Link>
 
@@ -60,7 +61,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-signal"
             >
               {item.label}
             </Link>
@@ -85,7 +86,7 @@ export function SiteHeader() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-surface"
+            className="inline-flex h-10 w-10 items-center justify-center border border-field text-foreground transition-colors hover:border-signal/40 hover:bg-surface"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls={menuId}
@@ -100,7 +101,7 @@ export function SiteHeader() {
         id={menuId}
         hidden={!open}
         className={cn(
-          "border-t border-border bg-background md:hidden",
+          "border-t border-field bg-background md:hidden",
           open ? "block" : "hidden"
         )}
       >

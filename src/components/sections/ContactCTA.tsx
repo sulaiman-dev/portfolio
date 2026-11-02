@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout/Section"
 import { Reveal } from "@/components/motion/Reveal"
+import { RouteRule } from "@/components/topology/RouteRule"
 import { buttonVariants } from "@/components/ui/button"
 import { siteConfig } from "@/data/site"
 import { cn } from "@/lib/utils"
@@ -9,12 +10,13 @@ export function ContactCTA() {
     <Section
       id="contact"
       spacing="lg"
-      className="border-t border-border bg-atmosphere"
+      className="border-t border-field bg-topology"
       aria-labelledby="contact-heading"
       containerClassName="max-w-3xl space-y-5 text-center sm:space-y-6"
       containerSize="md"
     >
       <Reveal className="space-y-5 sm:space-y-6">
+        <RouteRule className="mx-auto max-w-xs justify-center" />
         <h2 id="contact-heading" className="text-balance">
           Need help building integrations, dashboards or workflow automation?
         </h2>
